@@ -30,9 +30,10 @@ var mockMethods = {
   }
 }
 
-
-bridge.send = function (pluginId, fnName, opts, cb) {
-  return mockMethods[fnName](opts, cb)
-}
+bridge.define({
+  send: function (pluginId, fnName, opts, cb) {
+    return mockMethods[fnName](opts, cb)
+  }
+})
 
 module.exports = bridge

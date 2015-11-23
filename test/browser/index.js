@@ -6,13 +6,7 @@ var mockBridge = require('../../dev/bridge')
 describe('Orientation', function () {
   var or
   it('should be able to create a plugin instance', () => {
-    or = new Orientation({
-      properties: {
-        bridge: {
-          val: mockBridge
-        }
-      }
-    })
+    or = new Orientation()
   })
   it('when a value is set it will call the init method and receive back the ready', (done) => {
     or.val = 'landscape'

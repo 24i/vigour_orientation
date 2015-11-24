@@ -3,6 +3,8 @@ node_js:
   - "4.1.1"
   - "4.2.2"
   - "5.0.0"
+git:
+  submodules: false
 branches:
   only:
     - master

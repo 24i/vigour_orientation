@@ -4,8 +4,8 @@
   "description": "Observe device orientation",
   "main": "lib/index.js",
   "scripts": {
-    "start": "./node_modules/.bin/gaston",
-    "test": "./node_modules/.bin/gaston test browser"
+    "start": "gaston",
+    "test": "gaston test browser"
   },
   "repository": {
     "type": "git",
@@ -31,11 +31,8 @@
     "node": ">=0.12"
   },
   "dependencies": {
-    "vigour-wrapper": "*",
-    "vigour-js": "*"
-  },
-  "devDependencies": {
-    "gaston": "*"
+    "vigour-js": "^0.2.7",
+    "vigour-wrapper": "^2.0.6"
   },
   "vigour": {
     "plugin": {

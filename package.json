@@ -35,8 +35,7 @@
     "vigour-js": "*"
   },
   "devDependencies": {
-    "gaston": "*",
-    "vigour-element": "0.0.3"
+    "gaston": "*"
   },
   "vigour": {
     "plugin": {

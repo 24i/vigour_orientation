@@ -3,14 +3,13 @@
 var bridge = require('vigour-wrapper/lib/bridge')
 var mockbridge = window.vigour.native.bridge
 
-console.log('buzz')
 
 var mockMethods = {
   init () {
     console.log('bridge.init')
     // plugin init
     setTimeout(() => {
-      mockbridge.ready(null, 'landscape', 'Orientation')
+      mockbridge.ready(null, 'portrait', 'Orientation')
     })
   },
   set (orientation) {

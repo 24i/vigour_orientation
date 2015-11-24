@@ -5,18 +5,38 @@ var bridge = require('../../dev/bridge')
 
 describe('Orientation', function () {
   var or
-  it('should be able to create a plugin instance', (done) => {
+  it('should be able to create a plugin instance and recive the current orientation', (done) => {
     or = new Orientation()
-    or.on('ready', () => {
+    or.on('ready', (data) => {
+      expect(data).to.match(/^(portrait|landscape)$/)
       done()
     })
   })
   it('setting a value should lock the device orientation', (done) => {
     or.val = 'landscape'
-    or.locked.on((data) => {
-      expect(data).to.be.true
+    setTimeout(() => {
       expect(or.locked.val).to.be.true
       done()
-    })
+    }, 100)
+  })
+  it('setting locked to it\'s same value shouldn\'t call the bridge', () => {
+    var sendSpy = sinon.spy(bridge, 'send')
+    or.locked.val = true
+    expect(sendSpy).to.not.have.been.called
+    bridge.send.restore()
+  })
+  it('setting locked to false should call `unlock` on the bridge', () => {
+    var sendSpy = sinon.spy(bridge, 'send')
+    or.locked.val = false
+    expect(sendSpy).to.have.been.called
+    expect(sendSpy).to.have.been.calledWith('Orientation', 'unlock')
+    bridge.send.restore()
+  })
+  it('setting locked to true should call `lock` on the bridge', () => {
+    var sendSpy = sinon.spy(bridge, 'send')
+    or.locked.val = true
+    expect(sendSpy).to.have.been.called
+    expect(sendSpy).to.have.been.calledWith('Orientation', 'lock')
+    bridge.send.restore()
   })
 })

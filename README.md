@@ -1,4 +1,4 @@
-# plugin
+# Orientation plugin
 Observe device orientation
 
 ## Install

@@ -1,18 +1,22 @@
 'use strict'
 
 var Orientation = require('../../lib/native')
-var mockBridge = require('../../dev/bridge')
+var bridge = require('../../dev/bridge')
 
 describe('Orientation', function () {
   var or
-  it('should be able to create a plugin instance', () => {
+  it('should be able to create a plugin instance', (done) => {
     or = new Orientation()
+    or.on('ready', () => {
+      done()
+    })
   })
-  it('when a value is set it will call the init method and receive back the ready', (done) => {
+  it('setting a value should lock the device orientation', (done) => {
     or.val = 'landscape'
-    console.log(or, or.val)
-    // or.on('ready', () => {
-    //   done()
-    // })
+    or.locked.on((data) => {
+      expect(data).to.be.true
+      expect(or.locked.val).to.be.true
+      done()
+    })
   })
 })

@@ -1,16 +1,20 @@
 'use strict'
-
-var Orientation = require('../../lib/native')
 var bridge = require('../../dev/bridge')
 
 describe('Orientation', function () {
   var or
-  it('should be able to create a plugin instance and recive the current orientation', (done) => {
-    or = new Orientation()
+  it('should be able to init the plugin and receive back the current orientation', (done) => {
+    or = require('../../lib/native')
+    or.init()
     or.on('ready', (data) => {
       expect(data).to.match(/^(portrait|landscape)$/)
+
+    })
+    or.ready.on(() => {
+      expect(or.ready.val).to.be.true
       done()
     })
+
   })
   it('setting a value should lock the device orientation', (done) => {
     or.val = 'landscape'

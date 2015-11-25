@@ -31,8 +31,9 @@
     "node": ">=0.12"
   },
   "dependencies": {
-    "vigour-js": "^0.2.7",
-    "vigour-wrapper": "^2.0.6"
+    "vigour-ua": "*",
+    "vigour-js": "*",
+    "vigour-wrapper": "*"
   },
   "vigour": {
     "plugin": {

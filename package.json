@@ -46,6 +46,7 @@
   },
   "standard": {
     "globals": [
+      "alert",
       "describe",
       "it",
       "expect",
@@ -55,5 +56,8 @@
       "afterEach",
       "sinon"
     ]
+  },
+  "devDependencies": {
+    "gaston": "^0.27.2"
   }
 }

@@ -1,7 +1,8 @@
+'use strict'
 // tests data flows between native and js side using the bridge (if native) or the mock (if browser)
 describe('Testing data flows between native and js using the bridge', () => {
   require('../../lib/native')
-  var bridge = /* global.vigour.native.bridge */ require('../mockBridge')
+  var bridge = global.vigour.native.bridge /* require('../mockBridge') */
 
   // bridge.send(pluginId, fnName, opts, cb)
   // bridge.ready(err, response, pluginId)

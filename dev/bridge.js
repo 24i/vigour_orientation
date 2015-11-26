@@ -1,37 +1,36 @@
 'use strict'
-
 var bridge = require('vigour-wrapper/lib/bridge')
-var mockbridge = window.vigour.native.bridge
 
+// exports.init()
+// exports.set()
 
 var mockMethods = {
   init () {
-    console.log('bridge.init')
     // plugin init
     setTimeout(() => {
-      mockbridge.ready(null, 'portrait', 'Orientation')
+      bridge.ready(null, 'portrait', 'Orientation')
     })
   },
   set (orientation) {
     console.log('bridge.set')
     // set device orientation and locks it
     setTimeout(() => {
-      mockbridge.receive(null, {type: 'change', data: orientation}, 'Orientation')
+      bridge.receive(null, {type: 'change', data: orientation}, 'Orientation')
       setTimeout(() => {
-        mockbridge.receive(null, {type: 'lock', data: true}, 'Orientation')
+        bridge.receive(null, {type: 'lock', data: true}, 'Orientation')
       })
     })
   },
   lock () {
     console.log('bridge.lock')
     setTimeout(() => {
-      mockbridge.receive(null, {type: 'lock', data: true}, 'Orientation')
+      bridge.receive(null, {type: 'lock', data: true}, 'Orientation')
     })
   },
   unlock () {
     console.log('bridge.unlock')
     setTimeout(() => {
-      mockbridge.receive(null, {type: 'lock', data: false}, 'Orientation')
+      bridge.receive(null, {type: 'lock', data: false}, 'Orientation')
     })
   }
 }
@@ -43,4 +42,4 @@ bridge.define({
   }
 })
 
-module.exports = bridge
+exports.bridge = bridge

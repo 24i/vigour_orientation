@@ -4,10 +4,10 @@
 // ------
 var or = require('../../lib')
 
-describe('Manual testing', () => {
+describe('Manual testing', function () {
   this.timeout(25 * 1000)
   // when initialized the plugin should send back the current orientation with the ready event
-  it('should be able to get current orientation after init', (done) => {
+  it('should be able to get current orientation after init', function (done) {
     alert('put the device in portrait')
     or.init()
     or.on('ready', (data) => {
@@ -20,7 +20,7 @@ describe('Manual testing', () => {
     })
   })
   // when the orientation is defined by the JS side the plugin needs to change the orientation and call a lock
-  it('should be able to set the orientation to landscape and lock it', (done) => {
+  it('should be able to set the orientation to landscape and lock it', function (done) {
     alert('keep in portrait, i call landscape and it should change')
     or.val = 'landscape'
     or.on('change', (data) => {
@@ -33,7 +33,7 @@ describe('Manual testing', () => {
     })
   })
   // with orientation locked we should be able to rotate the device without changing the orientation
-  it('when locked orientation should\'t change', (done) => {
+  it('when locked orientation should\'t change', function (done) {
     let current = or.val
     or.locked.val = true
     alert('orientation change is locked, turning the device should\'t change it, try it')
@@ -42,7 +42,7 @@ describe('Manual testing', () => {
     }, 1000)
   })
   // we now can unlock the orientation and then it should change
-  it('we unlock orientation and rotating the device should change also the orientation', () => {
+  it('we unlock orientation and rotating the device should change also the orientation', function () {
     or.locked.val = false
     alert('now rotating the device should change the orientation')
   })

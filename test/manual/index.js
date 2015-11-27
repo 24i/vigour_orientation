@@ -2,9 +2,8 @@
 // ------
 // Those tests should run manually from a browser or a native implementation
 // ------
-var or = require('../../lib')
-
 describe('Manual testing', function () {
+  var or = require('../../lib')
   this.timeout(25 * 1000)
   // when initialized the plugin should send back the current orientation with the ready event
   it('should be able to get current orientation after init', function (done) {

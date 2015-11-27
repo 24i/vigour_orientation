@@ -1,5 +1,8 @@
 'use strict'
-var or = require('../../lib/native')
+// ------
+// Those tests should run manually from a browser or a native implementation
+// ------
+var or = require('../../lib')
 
 describe('Manual testing', () => {
   this.timeout(25 * 1000)

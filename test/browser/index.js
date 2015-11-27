@@ -1,9 +1,12 @@
-// this is temp stuff, needs web implementation first
-// should not being considered, is here just as a reference
-var bridge = require('./bridge')
+'use strict'
+// ------
+// Automate tests meant to run against the plugin js code
+// ------
+describe('Automate tests', () => {
+  
+  var bridge = require('../mockBridge')
+  var or = require('../../lib')
 
-module.exports = function () {
-  var or
   it('should be able to init the plugin and receive back the current orientation', (done) => {
     or = require('../../lib/native')
     or.init()
@@ -32,14 +35,14 @@ module.exports = function () {
     var sendSpy = sinon.spy(bridge, 'send')
     or.locked.val = false
     expect(sendSpy).to.have.been.called
-    expect(sendSpy).to.have.been.calledWith('Orientation', 'unlock')
+    expect(sendSpy).to.have.been.calledWith('orientation', 'unlock')
     bridge.send.restore()
   })
   it('setting locked to true should call `lock` on the bridge', () => {
     var sendSpy = sinon.spy(bridge, 'send')
     or.locked.val = true
     expect(sendSpy).to.have.been.called
-    expect(sendSpy).to.have.been.calledWith('Orientation', 'lock')
+    expect(sendSpy).to.have.been.calledWith('orientation', 'lock')
     bridge.send.restore()
   })
-}
+})

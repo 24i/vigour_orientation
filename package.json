@@ -54,7 +54,8 @@
       "after",
       "beforeEach",
       "afterEach",
-      "sinon"
+      "sinon",
+      "alert"
     ]
   },
   "devDependencies": {

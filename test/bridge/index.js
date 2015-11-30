@@ -1,7 +1,6 @@
 'use strict'
-// tests data flows between native and js side using the bridge (if native) or the mock (if browser)
-describe('Testing data flows between native and js using the bridge', function () {
-  require('../../lib/native')
+module.exports = function () {
+  // tests data flows between native and js side using the bridge (if native) or the mock (if browser)
   var bridge = window.vigour.native.bridge /* require('../mockBridge') */
 
   // bridge.send(pluginId, fnName, opts, cb)
@@ -57,4 +56,4 @@ describe('Testing data flows between native and js using the bridge', function (
       }, 500)
     })
   })
-})
+}

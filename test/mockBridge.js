@@ -8,7 +8,7 @@ var mockMethods = {
     console.log('bridge.init')
     // plugin init
     setTimeout(() => {
-      mockbridge.ready(null, 'portrait', 'orientation')
+      cb(null, 'portrait', 'orientation')
     })
   },
   set (orientation) {

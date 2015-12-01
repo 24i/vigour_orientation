@@ -8,7 +8,7 @@ exports.platform = {
         })
       }
     },
-    fix: {
+    orientation: {
       orientation (data, event) {
         this.parent.locked.val = true
         data.done()

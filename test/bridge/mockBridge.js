@@ -11,8 +11,8 @@ var mockMethods = {
       cb(null, 'portrait', 'orientation')
     })
   },
-  set (orientation) {
-    console.log('bridge.set')
+  orientation (orientation) {
+    console.log('bridge.orientation')
     // set device orientation and locks it
     setTimeout(() => {
       mockbridge.receive(null, {type: 'change', data: orientation}, 'orientation')

@@ -9,7 +9,7 @@ var mockMethods = {
     })
   },
   // opts should match this regex ^(portrait|landscape)$
-  fix (opts, cb) {
+  orientation (opts, cb) {
     // set device orientation and executes the callback
     setTimeout(function () {
       cb && cb(null)

@@ -1,4 +1,4 @@
-https://travis-ci.org/vigour-io/orientation.svg?branch=develop
+![image] (https://travis-ci.org/vigour-io/orientation.svg?branch=develop)
 
 # Orientation plugin
 Observe device orientation

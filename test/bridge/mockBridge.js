@@ -1,11 +1,11 @@
 'use strict'
-
-var bridge = require('vigour-wrapper/lib/bridge')
-var mockbridge = window.vigour.native.bridge
+var mockbridge = require('vigour-wrapper/lib/bridge')
+// TODO those tests
+// exports.init()
+// exports.set()
 
 var mockMethods = {
   init () {
-    console.log('bridge.init')
     // plugin init
     setTimeout(() => {
       cb(null, 'portrait', 'orientation')
@@ -35,11 +35,11 @@ var mockMethods = {
   }
 }
 
-bridge.define({
+mockbridge.define({
   send: function (pluginId, fnName, opts, cb) {
     console.log('bridge.send', pluginId, fnName, opts, cb)
     return mockMethods[fnName](opts, cb)
   }
 })
 
-module.exports = bridge
+exports.bridge = mockbridge

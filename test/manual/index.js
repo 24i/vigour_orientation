@@ -10,11 +10,11 @@ describe('Orientation plugin manual tests', function () {
     // we use a timeout because the init is called automatically, we don't know if here
     // the event is already fired or not
     // we just know that the value of the plugin must be 'orientation' or 'landscape'
-    setTimeout(function () {
+    or.ready.is(true, () => {
       expect(or.locked.val).to.be.false
       expect(or.val).to.match(/^(portrait|landscape)$/)
       done()
-    }, 1000)
+    })
   })
 
   // we can set the orientation manually, the plugin should change the device orientation
@@ -29,7 +29,7 @@ describe('Orientation plugin manual tests', function () {
   // now that we specified the orientation we can check if is it really locked
   it('should not change orientation on device rotation', function (done) {
     this.timeout(3000)
-    alert('we are in ladnscape, rotate the device in portrait, check will be performed after 2 second')
+    alert('we are in landscape, rotate the device in portrait, check will be performed after 2 second')
     setTimeout(function () {
       expect(or.val).to.euqal('landscape')
     }, 2000)

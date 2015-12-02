@@ -3,7 +3,7 @@ exports.platform = {
   on: {
     init: {
       orientation () {
-        setTimeout(function () {
+        setTimeout(() => {
           this.parent.val = 'portrait'
         })
       }

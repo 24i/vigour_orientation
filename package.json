@@ -9,7 +9,9 @@
     "ios": "npm run build && wrapper build --native.selectedPlatforms ios",
     "android-test": "cd test && ../node_modules/.bin/gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms android",
     "android": "npm run build && wrapper build --native.selectedPlatforms android",
-    "all": "npm run build && wrapper build"
+    "all": "npm run build && wrapper build",
+    "prepush": "./node_modules/.bin/standard lib/**/*.js",
+    "postinstall": "mkdir test/node_modules 2>/dev/null ; ln -s ../../ test/node_modules/vigour-orientation"
   },
   "repository": {
     "type": "git",
@@ -63,6 +65,8 @@
     ]
   },
   "devDependencies": {
-    "gaston": "~0.28.10"
+    "gaston": "~0.28.10",
+    "husky": "^0.10.2",
+    "standard": "^5.4.1"
   }
 }

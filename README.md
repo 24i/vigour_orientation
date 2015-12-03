@@ -1,6 +1,6 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![npm version](https://badge.fury.io/js/vigour-status-bar.svg)](https://badge.fury.io/js/vigour-orientation)
-[![Build Status](https://travis-ci.org/vigour-io/status-bar.svg?branch=develop)](https://travis-ci.org/vigour-io/orientation)
+[![npm version](https://badge.fury.io/js/vigour-orientation.svg)](https://badge.fury.io/js/vigour-orientation)
+[![Build Status](https://travis-ci.org/vigour-io/orientation.svg?branch=develop)](https://travis-ci.org/vigour-io/orientation)
 
 # Orientation plugin
 Observe device orientation

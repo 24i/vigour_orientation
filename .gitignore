@@ -10,3 +10,4 @@ mocha.css
 mocha.js
 test-runner.html
 bundles
+test/build*

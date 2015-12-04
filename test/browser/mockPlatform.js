@@ -13,20 +13,15 @@ exports.platform = {
       orientation (data) {
         console.log('mock orientation')
         this.parent.locked.val = true
+        data.done(null)
         return
       }
     },
-    lock: {
-      orientation (data) {
+    locked: {
+      orientation (obj) {
         console.log('mock lock')
+        obj.done(null)
         // i'm going to lock for real in native
-        return
-      }
-    },
-    unlock: {
-      orientation (data) {
-        console.log('mock unclock')
-        // i'm going to unlock for real in native
         return
       }
     }

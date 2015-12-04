@@ -1,12 +1,14 @@
 'use strict'
-var tests = require('./tests')
+var tests = require('../tests')
 
-describe('Orientation plugin automated tests', function () {
-  describe('Mock plugin tests', function () {
-    tests(require('./pluginMock'))
+describe('Orientation', function () {
+  describe('Mock Platform tests', function () {
+    tests(require('./mockPlatform'), 'platform')
   })
 
-  describe('Mock bridge tests', function () {
-    tests(require('./bridgeMock'))
+  describe('Mock native tests', function () {
+    var mockBridge = require('./mockNativeMethods')
+    var nativePlatform = require('../../lib/platform/native')
+    tests(nativePlatform, mockBridge)
   })
 })

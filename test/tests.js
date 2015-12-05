@@ -3,6 +3,7 @@
 module.exports = function (inject, type) {
   var or, bridge
   var manual = !inject
+  var mockBridge = type && type.label
 
   it('require env', function () {
     or = require('../lib')
@@ -14,7 +15,7 @@ module.exports = function (inject, type) {
     })
   }
 
-  if (type && type.label === 'bridge') {
+  if (mockBridge) {
     bridge = window.vigour.native.bridge
   }
 

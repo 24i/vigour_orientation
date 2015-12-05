@@ -14,7 +14,7 @@ module.exports = function (inject, type) {
     })
   }
 
-  if (type.label === 'bridge') {
+  if (type && type.label === 'bridge') {
     bridge = window.vigour.native.bridge
   }
 

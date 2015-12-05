@@ -1,17 +1,16 @@
 {
   "name": "vigour-orientation",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Observe device orientation",
   "main": "lib/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/gaston test -r browser",
-    "ios-test": "cd test && ../node_modules/.bin/gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms ios",
+    "test": "gaston test -r browser",
+    "ios-test": "cd test && gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms ios",
     "ios": "npm run build && wrapper build --native.selectedPlatforms ios",
-    "android-test": "cd test && ../node_modules/.bin/gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms android",
+    "android-test": "cd test && gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms android",
     "android": "npm run build && wrapper build --native.selectedPlatforms android",
     "all": "npm run build && wrapper build",
-    "prepush": "./node_modules/.bin/standard lib/**/*.js",
-    "postinstall": "mkdir test/node_modules 2>/dev/null ; ln -s ../../ test/node_modules/vigour-orientation"
+    "prepush": "standard lib/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -66,8 +65,12 @@
     ]
   },
   "devDependencies": {
-    "gaston": "~0.28.10",
     "husky": "^0.10.2",
     "standard": "^5.4.1"
+  },
+  "gaston": {
+    "aliasify": {
+      "vigour-orientation": "./"
+    }
   }
 }

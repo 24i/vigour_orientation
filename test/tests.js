@@ -29,7 +29,6 @@ module.exports = function (inject, type) {
     or.locked.val = 0
     var itfired = false
     or.on('data', function () {
-      console.error('THIS SHOULD BE LAST! locked?', or.locked.val)
       expect(or.locked.val).to.be.true
       itfired = true
       if (!manual) {
@@ -43,11 +42,8 @@ module.exports = function (inject, type) {
       setTimeout(() => {
         expect(itfired).to.be.true
         alert('the orientation should now (already) be landscape')
-        // var worked = confirm('click ok if it changed to landscape!')
-        // expect(worked).to.be.true
       }, 2000)
     }
-
   })
 
   if (manual) {

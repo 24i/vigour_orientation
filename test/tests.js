@@ -14,7 +14,7 @@ module.exports = function (inject, type) {
     })
   }
 
-  if (type.label === 'bridge') {
+  if (type && type.label === 'bridge') {
     bridge = window.vigour.native.bridge
   }
 
@@ -46,7 +46,6 @@ module.exports = function (inject, type) {
   })
 
   it('should change the orientation to portrait and lock it', function (done) {
-
     or.locked.val = 0
     var itfired = false
     or.on('data', function () {

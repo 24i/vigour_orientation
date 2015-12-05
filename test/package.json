@@ -1,12 +1,15 @@
 {
   "name": "vigour-orientation-tests",
   "dependencies": {
-    "vigour-orientation": "../"
   },
   "gaston": {
-    "package": true
+    "package": true,
+    "aliasify": {
+      "vigour-orientation": "../"
+    }
   },
   "vigour": {
+    "orientation": "portrait",
     "native": {
       "debug": true,
       "platforms": {

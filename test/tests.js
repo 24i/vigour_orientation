@@ -1,9 +1,8 @@
 'use strict'
 
 module.exports = function (inject, type) {
-  var or, bridge
+  var or
   var manual = !inject
-  var mockBridge = type && type.label
 
   it('require env', function () {
     or = require('../lib')
@@ -13,10 +12,6 @@ module.exports = function (inject, type) {
     it('create instance with mock properties', function () {
       or = new or.Constructor(inject)
     })
-  }
-
-  if (mockBridge) {
-    bridge = window.vigour.native.bridge
   }
 
   it('should be ready after the init', function (done) {

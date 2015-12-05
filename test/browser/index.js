@@ -3,7 +3,7 @@ var tests = require('../tests')
 
 describe('Orientation', function () {
   describe('Mock Platform tests', function () {
-    tests(require('../../lib/platform/mockPlatform'), 'platform')
+    tests(require('../../lib/platform/mock'), 'platform')
   })
 
   describe('Mock native tests', function () {

@@ -35,7 +35,7 @@ or.locked.on((data) => {
   if (data === true) console.log('Hey I\'m locked')
   else if (data === true) console.log('Hey I\'m unlocked')
 })
-// or we can lock it
+// and we can lock it
 or.locked.val = true
 // or unlock it
 or.locked.val = false

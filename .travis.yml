@@ -9,6 +9,7 @@ branches:
   only:
     - master
     - develop
+    - sentinel-fix
 before_install:
   - npm install -g gaston
   - npm install -g vigour-sentinel

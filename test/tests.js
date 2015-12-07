@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function (inject, type) {
-  var or, bridge
+  var or
   var manual = !inject
 
   it('require env', function () {
@@ -14,10 +14,6 @@ module.exports = function (inject, type) {
     })
   }
 
-  if (type.label === 'bridge') {
-    bridge = window.vigour.native.bridge
-  }
-
   it('should be ready after the init', function (done) {
     or.ready.is(true, () => {
       done()
@@ -25,11 +21,9 @@ module.exports = function (inject, type) {
   })
 
   it('should change the orientation to landscape and lock it', function (done) {
-
     or.locked.val = 0
     var itfired = false
     or.on('data', function () {
-      console.error('THIS SHOULD BE LAST! locked?', or.locked.val)
       expect(or.locked.val).to.be.true
       itfired = true
       if (!manual) {
@@ -43,12 +37,39 @@ module.exports = function (inject, type) {
       setTimeout(() => {
         expect(itfired).to.be.true
         alert('the orientation should now (already) be landscape')
-        // var worked = confirm('click ok if it changed to landscape!')
-        // expect(worked).to.be.true
       }, 2000)
     }
-
   })
+
+  it('should change the orientation to portrait and lock it', function (done) {
+    or.locked.val = 0
+    var itfired = false
+    or.on('data', function () {
+      expect(or.locked.val).to.be.true
+      itfired = true
+      if (!manual) {
+        done()
+      }
+    })
+
+    or.val = 'portrait'
+
+    if (manual) {
+      setTimeout(() => {
+        expect(itfired).to.be.true
+        alert('the orientation should now (already) be portrait')
+      }, 2000)
+    }
+  })
+
+  if (manual) {
+    it('should be locked', function (done) {
+      alert('orientation should be locked, you now have 5 seconds to confirm...')
+      setTimeout(function () {
+        done()
+      }, 5000)
+    })
+  }
 
   if (manual) {
     it('should be locked', function (done) {

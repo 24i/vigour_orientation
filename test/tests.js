@@ -42,7 +42,7 @@ module.exports = function (inject, type) {
         }
         expect(or.locked.val).to.be.true
         done()
-      }, timeout || 1000)
+      }, timeout || 1500)
       or.val = 'portrait'
     })
 
@@ -60,7 +60,7 @@ module.exports = function (inject, type) {
         }
         expect(or.locked.val).to.be.true
         done()
-      }, timeout || 1000)
+      }, timeout || 1500)
       or.val = 'landscape'
     })
   }

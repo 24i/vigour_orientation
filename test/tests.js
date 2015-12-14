@@ -25,6 +25,18 @@ module.exports = function (inject, type) {
     })
   })
 
+  it('should inform on orientation chnages', function (done) {
+    this.timeout(25000)
+    alert('try to change device orientation 2 times')
+    var portrait = false
+    var landscape = false
+    or.on('data', function (data) {
+      if (data === 'portrait') portrait = true
+      if (data === 'landscape') landscape = true
+      if (portrait && landscape) done()
+    })
+  })
+
   if (!web) {
     it('should change the orientation to portrait and lock it', function (done) {
       var timeout
@@ -62,18 +74,6 @@ module.exports = function (inject, type) {
       or.val = 'landscape'
     })
   }
-
-  it('should inform on orientation chnages', function (done) {
-    this.timeout(25000)
-    alert('try to change device orientation 2 times')
-    var portrait = false
-    var landscape = false
-    or.on('data', function (data) {
-      if (data === 'portrait') portrait = true
-      if (data === 'landscape') landscape = true
-      if (portrait && landscape) done()
-    })
-  })
 
   if (manual) {
     it('should be locked', function (done) {

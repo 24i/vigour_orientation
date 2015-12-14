@@ -5,8 +5,6 @@ module.exports = function (inject, type) {
   var manual = !inject && type !== 'browser'
   var web = !inject && type === 'browser'
 
-  console.log('manual', manual, 'web', web)
-
   it('require', function () {
     console.warn('--- [0][TEST] require plugin')
     or = require('../lib')

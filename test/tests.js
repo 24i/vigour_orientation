@@ -23,21 +23,28 @@ module.exports = function (inject, type) {
   })
 
   it('should inform on orientation chnages', function (done) {
-    this.timeout(25000)
+    if (manual || web) {
+      this.timeout(25000)
+    }
     var portrait = false
     var landscape = false
+    var finished = false
     or.on('data', function (data) {
+      if (finished) return
       if (data === 'portrait') portrait = true
       if (data === 'landscape') landscape = true
-      if (portrait && landscape) done()
-    }, 'changes')
+      if (portrait && landscape) {
+        finished = true
+        done()
+      }
+    })
     if (manual) {
       alert('try to change device orientation 2 times')
     } else if (!web) {
       or.val = or.val === 'portrait' ? 'landscape' : 'portrait'
       setTimeout(function () {
         or.val = or.val === 'portrait' ? 'landscape' : 'portrait'
-      }, 300)
+      })
     }
   })
 
@@ -56,7 +63,7 @@ module.exports = function (inject, type) {
         }
         expect(or.locked.val).to.be.true
         done()
-      }, timeout || 1500)
+      }, timeout || 500)
       or.val = 'portrait'
     })
 
@@ -74,7 +81,7 @@ module.exports = function (inject, type) {
         }
         expect(or.locked.val).to.be.true
         done()
-      }, timeout || 1500)
+      }, timeout || 500)
       or.val = 'landscape'
     })
   }

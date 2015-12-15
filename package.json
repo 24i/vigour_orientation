@@ -4,7 +4,7 @@
   "description": "Observe device orientation",
   "main": "lib/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/gaston test -r browser",
+    "test": "./node_modules/.bin/gaston test -r browser -s test/browser/index.js",
     "ios-test": "cd test && ../node_modules/.bin/gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms ios",
     "ios": "npm run build && wrapper build --native.selectedPlatforms ios",
     "android-test": "cd test && ../node_modules/.bin/gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms android",

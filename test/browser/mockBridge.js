@@ -7,20 +7,18 @@ bridge.mock = {
     init (opts, cb) {
       setTimeout(function () {
         cb && cb(null)
-      })
+      }, 100)
     },
     orientation (opts, cb) {
       setTimeout(function () {
-        console.log(cb)
         cb && cb(null)
-      })
+      }, 200)
     },
     locked (opts, cb) {
       // opts: true > lock, false > unlock
       setTimeout(function () {
-        console.log('calling callbackst!')
         cb && cb(null)
-      })
+      }, 300)
     }
   }
 }

@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (inject, type) {
+module.exports = function () {
   var or
 
   it('require', function () {
@@ -8,6 +8,7 @@ module.exports = function (inject, type) {
   })
 
   it('should be ready after the init', function (done) {
+    or.val = true
     or.ready.is(true, () => {
       done()
     })

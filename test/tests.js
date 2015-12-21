@@ -26,6 +26,7 @@ module.exports = function (inject, type) {
   }
 
   it('should be ready after the init', function (done) {
+    or.val = true
     or.ready.is(true, () => {
       done()
     })
@@ -46,7 +47,7 @@ module.exports = function (inject, type) {
         finished = true
         done()
       }
-    })
+    }, 'inform')
     if (manual) {
       alert('try to change device orientation 2 times')
     } else if (!web) {

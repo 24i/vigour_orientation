@@ -1,5 +1,7 @@
 'use strict'
 
+var Plugin = require('vigour-wrapper/lib/plugin')
+
 module.exports = function (inject, type) {
   var or
   var web = !inject && type === 'browser'
@@ -12,7 +14,14 @@ module.exports = function (inject, type) {
 
   if (inject) {
     it('create instance with mock properties', function () {
-      or = new or.Constructor(inject)
+      or = new Plugin({
+        inject: [
+          require('../lib/shared'),
+          inject
+        ]
+      })
+      // TODO: should not have to fire init ourselves:
+      or._platform.emit('init', true)
     })
   }
 

@@ -6,11 +6,13 @@ bridge.mock = {
   methods: {
     init (opts, cb) {
       // initialize
+      console.log('lala beng dat initinitinitinit')
       setTimeout(function () {
         cb && cb(null)
       }, 100)
     },
     orientation (orientation, cb) {
+      console.log('lala beng dat orientation', orientation)
       // - set orientation according to expected values:
       // "landscape"
       // "portrait"
@@ -21,6 +23,7 @@ bridge.mock = {
       }, 200)
     },
     locked (locked, cb) {
+      console.log('lala beng dat locked')
       // locked === true > lock
       // locked === false > unlock
       setTimeout(function () {

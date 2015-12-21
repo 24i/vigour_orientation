@@ -5,17 +5,24 @@ bridge.label = 'mockBridge'
 bridge.mock = {
   methods: {
     init (opts, cb) {
+      // initialize
       setTimeout(function () {
         cb && cb(null)
       }, 100)
     },
-    orientation (opts, cb) {
+    orientation (orientation, cb) {
+      // - set orientation according to expected values:
+      // "landscape"
+      // "portrait"
+
+      // - lock orientation
       setTimeout(function () {
         cb && cb(null)
       }, 200)
     },
-    locked (opts, cb) {
-      // opts: true > lock, false > unlock
+    locked (locked, cb) {
+      // locked === true > lock
+      // locked === false > unlock
       setTimeout(function () {
         cb && cb(null)
       }, 300)

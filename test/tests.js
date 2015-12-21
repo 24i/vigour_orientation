@@ -26,6 +26,9 @@ module.exports = function (inject, type) {
   }
 
   it('should be ready after the init', function (done) {
+    if (manual) {
+      or._platform.emit('init', true)
+    }
     or.ready.is(true, () => {
       done()
     })

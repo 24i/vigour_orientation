@@ -1,10 +1,10 @@
 'use strict'
 require('gaston-tester')
 var env = require('vigour-env')
-var tests = require('../tests')
+var tests = require('../native_tests')
 
 describe('Orientation', function () {
   // this.timeout(25000)
-  tests(null, env.isWeb.val ? 'browser' : null)
+  tests()
 })
 

@@ -9,12 +9,12 @@ module.exports = function (inject, type) {
   var manual = !inject && !bridge && !web
 
   it('require', function () {
-    or = require('../lib')
+    or = window.ORIENTATION = require('../lib')
   })
 
   if (inject) {
     it('create instance with mock properties', function () {
-      or = new Plugin({
+      or = window.ORIENTATION = new Plugin({
         inject: [
           require('../lib/shared'),
           inject
@@ -40,7 +40,9 @@ module.exports = function (inject, type) {
     var landscape = false
     var finished = false
     or.on('data', function (data) {
+      console.error('or on data!', data)
       if (finished) return
+      console.log('not finished!')
       if (data === 'portrait') portrait = true
       if (data === 'landscape') landscape = true
       if (portrait && landscape) {

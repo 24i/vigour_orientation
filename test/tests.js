@@ -32,7 +32,7 @@ module.exports = function (inject, type) {
     })
   })
 
-  it('should inform on orientation chnages', function (done) {
+  it('should inform on orientation changes', function (done) {
     if (manual || web) {
       this.timeout(25000)
     }

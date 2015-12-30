@@ -20,8 +20,7 @@ module.exports = function (inject, type) {
           inject
         ]
       })
-      // TODO: should not have to fire init ourselves:
-      or._platform.emit('init', true)
+      or.ready.val = true
     })
   }
 
@@ -40,9 +39,7 @@ module.exports = function (inject, type) {
     var landscape = false
     var finished = false
     or.on('data', function (data) {
-      console.error('or on data!', data)
       if (finished) return
-      console.log('not finished!')
       if (data === 'portrait') portrait = true
       if (data === 'landscape') landscape = true
       if (portrait && landscape) {
@@ -61,46 +58,35 @@ module.exports = function (inject, type) {
   })
 
   if (!web || bridge) {
-    it('should change the orientation to portrait and lock it', function (done) {
-      var timeout
-      if (manual) {
-        this.timeout(25000)
-        timeout = 5000
-        alert('put device orientation on landscape if not already')
-      }
-      or.locked.val = 0
+    it('should change the orientation on command', function (done) {
+      var current = or.val
+      or.val = current === 'portrait' ? 'landscape' : 'portrait'
       setTimeout(function () {
-        if (manual) {
-          alert('the orientation should now be portrait, please check')
-        }
-        expect(or.locked.val).to.be.true
         done()
-      }, timeout || 500)
-      or.val = 'portrait'
+      }, 1000)
     })
 
-    it('should change the orientation to landscape and lock it', function (done) {
-      var timeout
-      if (manual) {
-        this.timeout(25000)
-        timeout = 5000
-        alert('put device orientation on portrait if not already')
-      }
-      or.locked.val = 0
+    it('should be locked after setting the orientation', function () {
+      expect(or.locked.val).to.be.true
+    })
+
+    it('should change the orientation on command', function (done) {
+      var current = or.val
+      or.val = current === 'portrait' ? 'landscape' : 'portrait'
       setTimeout(function () {
-        if (manual) {
-          alert('the orientation should now be landscape, please check')
-        }
-        expect(or.locked.val).to.be.true
         done()
-      }, timeout || 500)
-      or.val = 'landscape'
+      }, 1000)
+    })
+
+    it('should be locked after setting the orientation', function () {
+      expect(or.locked.val).to.be.true
     })
   }
 
   if (manual) {
     it('should be locked', function (done) {
       alert('orientation should be locked, you now have 5 seconds to confirm...')
+      this.timeout(25000)
       setTimeout(function () {
         done()
       }, 5000)

@@ -63,6 +63,7 @@ module.exports = function (inject, type) {
       var current = or.val
       or.val = current === 'portrait' ? 'landscape' : 'portrait'
       setTimeout(function () {
+        alert('Orientation is changed to ' + or.val + '?')
         done()
       }, 3000)
     })
@@ -76,6 +77,7 @@ module.exports = function (inject, type) {
       var current = or.val
       or.val = current === 'portrait' ? 'landscape' : 'portrait'
       setTimeout(function () {
+        alert('Orientation is changed to ' + or.val + '?')
         done()
       }, 3000)
     })

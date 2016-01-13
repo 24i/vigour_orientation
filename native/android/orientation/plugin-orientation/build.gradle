@@ -55,10 +55,10 @@ ext {
 
     libraryDescription = 'plugin that provides information about the orientation of the device'
 
-    siteUrl = 'https://github.com/vigour-io/env'
-    gitUrl = 'https://github.com/vigour-io/env.git'
+    siteUrl = 'https://github.com/vigour-io/orientation'
+    gitUrl = 'https://github.com/vigour-io/orientation.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.1.2'
 
     developerId = 'vigour'
     developerName = 'Michiel van Liempt'

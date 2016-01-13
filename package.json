@@ -8,6 +8,7 @@
     "ios-test": "cd test && gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms ios",
     "ios": "npm run build && wrapper build --native.selectedPlatforms ios",
     "android-test": "cd test && gaston bundle -t -s manual/index.js -o . -i && wrapper build --native.selectedPlatforms android",
+    "android-test-quick": "cd test && wrapper build --native.selectedPlatforms android",
     "android": "npm run build && wrapper build --native.selectedPlatforms android",
     "all": "npm run build && wrapper build",
     "prepush": "./node_modules/.bin/standard lib/**/*.js",
@@ -37,6 +38,7 @@
     "node": ">=0.12"
   },
   "dependencies": {
+    "npmlog": "^2.0.0",
     "vigour-config": "~0.0.7",
     "vigour-env": "~1.0.9",
     "vigour-js": "~0.3.8",
@@ -46,9 +48,8 @@
   "vigour": {
     "plugin": {
       "android": {
-        "skipInstall": true,
-        "className": "io.vigour.orientation",
-        "instantiation": "new Orientation(this, webview)"
+        "className": "io.vigour.plugin.orientation.OrientationPlugin",
+        "instantiation": "new OrientationPlugin(this)"
       }
     }
   },

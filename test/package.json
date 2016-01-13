@@ -1,6 +1,7 @@
 {
   "name": "vigour-orientation-tests",
   "dependencies": {
+    "vigour-orientation": "../"
   },
   "gaston": {
     "package": true,

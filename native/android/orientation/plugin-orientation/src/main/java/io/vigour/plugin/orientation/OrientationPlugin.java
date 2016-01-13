@@ -39,7 +39,7 @@ public class OrientationPlugin extends Plugin implements ActivityLifecycleListen
             return;
         }
         surfaceRotation = current;
-        isPortrait = context.getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE;
+        init(null);
         sendEvent("change", isPortrait ? "portrait" : "landscape");
     }
 
@@ -82,5 +82,10 @@ public class OrientationPlugin extends Plugin implements ActivityLifecycleListen
         } else {
             context.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
         }
+    }
+
+    public String init(Object ignored) {
+        isPortrait = context.getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE;
+        return isPortrait ? "portrait" : "landscape";
     }
 }

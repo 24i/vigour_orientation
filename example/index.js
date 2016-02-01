@@ -1,6 +1,7 @@
 var or = global.or = require('../lib')
 
-or.on((data) => {
-  console.log('------------ YO', data)
+or.on((data, event) => {
+  console.log('[orientation] ------------ update!')
+  console.log('[orientation]  data:', data)
+  console.log('[orientation]  event:', event)
 })
-

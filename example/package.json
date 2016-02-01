@@ -1,0 +1,60 @@
+{
+  "name": "vigour-orientation-tests",
+  "dependencies": {
+    "vigour-orientation": "../"
+  },
+  "gaston": {
+    "package": true,
+    "aliasify": {
+      "vigour-orientation": "../"
+    }
+  },
+  "vigour": {
+    "orientation": "portrait",
+    "native": {
+      "debug": true,
+      "platforms": {
+        "ios": {
+          "productName": "Orientation Tests",
+          "organizationName": "Vigour",
+          "organizationIdentifier": "io.vigour.orientation",
+          "buildNumber": "1",
+          "appIndexPath": "build.html",
+          "NSAllowsArbitraryLoads": true,
+          "assets": {
+            "build.html": true,
+            "build.js": true,
+            "build.css": true
+          }
+        },
+        "android": {
+          "debug": true,
+          "run": true,
+          "productName": "Orientation Tests",
+          "applicationId": "io.vigour.orientation",
+          "appIndexPath": "build.html",
+          "splashDuration": "0",
+          "assets": {
+            "build.html": true,
+            "build.js": true,
+            "build.css": true
+          }
+        }
+      }
+    }
+  },
+  "standard": {
+    "globals": [
+      "alert",
+      "describe",
+      "it",
+      "expect",
+      "before",
+      "after",
+      "beforeEach",
+      "afterEach",
+      "sinon",
+      "FB"
+    ]
+  }
+}

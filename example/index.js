@@ -5,3 +5,5 @@ or.on((data, event) => {
   console.log('[orientation]  data:', data)
   console.log('[orientation]  event:', event)
 })
+
+document.body.appendChild(document.createTextNode('MARPS'))

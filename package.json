@@ -1,6 +1,6 @@
 {
   "name": "vigour-orientation",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Observe device orientation",
   "main": "lib/index.js",
   "scripts": {

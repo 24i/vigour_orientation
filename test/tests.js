@@ -48,7 +48,10 @@ module.exports = function (inject, type) {
       }
     }, 'inform')
     if (manual) {
-      alert('try to change device orientation 2 times')
+      console.log('\n\n\n')
+      console.log('=========== TEST INSTRUCTIONS ==========')
+      console.log('please change the device orientation')
+      console.log('\n\n\n')
     } else if (!web) {
       or.val = or.val === 'portrait' ? 'landscape' : 'portrait'
       setTimeout(function () {
@@ -61,9 +64,13 @@ module.exports = function (inject, type) {
     it('should change the orientation on command', function (done) {
       this.timeout(5000)
       var current = or.val
-      or.val = current === 'portrait' ? 'landscape' : 'portrait'
+      var newvalue = current === 'portrait' ? 'landscape' : 'portrait'
+      or.val = newvalue
+      console.log('\n\n\n')
+      console.log('=========== TEST INSTRUCTIONS ==========')
+      console.log('Did orientation change to ' + newvalue + '?')
+      console.log('\n\n\n')
       setTimeout(function () {
-        alert('Orientation is changed to ' + or.val + '?')
         done()
       }, 3000)
     })
@@ -75,9 +82,13 @@ module.exports = function (inject, type) {
     it('should change the orientation on command', function (done) {
       this.timeout(5000)
       var current = or.val
-      or.val = current === 'portrait' ? 'landscape' : 'portrait'
+      var newvalue = current === 'portrait' ? 'landscape' : 'portrait'
+      or.val = newvalue
+      console.log('\n\n\n')
+      console.log('=========== TEST INSTRUCTIONS ==========')
+      console.log('Did orientation change to ' + newvalue + '?')
+      console.log('\n\n\n')
       setTimeout(function () {
-        alert('Orientation is changed to ' + or.val + '?')
         done()
       }, 3000)
     })
@@ -89,7 +100,10 @@ module.exports = function (inject, type) {
 
   if (manual) {
     it('should be locked', function (done) {
-      alert('orientation should be locked, you now have 5 seconds to confirm...')
+      console.log('\n\n\n')
+      console.log('=========== TEST INSTRUCTIONS ==========')
+      console.log('orientation should be locked, please confirm by spinning your device around wildly')
+      console.log('\n\n\n')
       this.timeout(25000)
       setTimeout(function () {
         done()
